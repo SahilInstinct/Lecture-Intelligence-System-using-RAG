@@ -19,6 +19,9 @@ def create_embedding(text_list):
 
     return data["embeddings"]
 
+
+
+
 if __name__ == "__main__":
     jsons = os.listdir('jsons') # Get all the json files in the jsons folder
     my_dict = [] # Create an empty list to store the chunks with embeddings

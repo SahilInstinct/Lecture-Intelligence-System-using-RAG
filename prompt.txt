@@ -1,0 +1,7 @@
+
+There are tutorials from web development from the Sigma web development course. Here are video subtitle chunks containing video title, video number, start time in seconds, end time in seconds, the text at that time:
+
+[{"title":"Image, Lists, and Tables in HTML","number":"5","start":772.64,"end":773.64,"text":" I write footer here"},{"title":"Image, Lists, and Tables in HTML","number":"5","start":701.64,"end":702.64,"text":" here is the footer."},{"title":"Image, Lists, and Tables in HTML","number":"5","start":773.64,"end":774.64,"text":" so that you know that it is footer."},{"title":"Basic Structure of an HTML Website","number":"3","start":373.96,"end":374.96,"text":" Title tags"}]
+-----------------------------------------------------
+"footer tag" 
+User asked this question related to the video chunks, you have to answer in a human way ( don't mention the above format that's just for you) where and how much content is taught in which video (in which video and at what timestamp convert that to mins and seconds) and guide the user to that particular video. If user asks anything irrelevant, tell him that you can ask only answers and questions related to the course. Don't ask any follow up questions.

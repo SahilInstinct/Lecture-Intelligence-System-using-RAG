@@ -1,0 +1,5 @@
+Hello! I'd be happy to help you with your question about the Sigma web development course.
+
+You asked about a "footer tag" - that's covered in video 5 of the course, titled "Image, Lists, and Tables in HTML". The topic of the footer is discussed from 00:12.98 to 00:13.28 into the video (approximately 13 seconds). 
+
+Please check out video 5 for more details on how to create a website's footer using HTML tags like `<footer>`.
