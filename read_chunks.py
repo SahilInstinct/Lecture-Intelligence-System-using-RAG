@@ -2,6 +2,7 @@ import requests
 import os
 import json
 import pandas as pd
+import joblib
 
 def create_embedding(text_list):
     r = requests.post("http://localhost:11434/api/embed", json={
@@ -18,23 +19,26 @@ def create_embedding(text_list):
 
     return data["embeddings"]
 
+if __name__ == "__main__":
+    jsons = os.listdir('jsons') # Get all the json files in the jsons folder
+    my_dict = [] # Create an empty list to store the chunks with embeddings
+    chunk_id = 0
 
-jsons = os.listdir('jsons') # Get all the json files in the jsons folder
-my_dict = [] # Create an empty list to store the chunks with embeddings
-chunk_id = 0
+    for json_file in jsons:
+        with open(f"jsons/{json_file}","r") as f:
+            content = json.load(f)
+        print(f"Creating embeddings for {json_file}")
+        embeddings = create_embedding([c['text'] for c in content['chunks']])
+        
+        for i, chunk in enumerate(content['chunks']):
+            chunk["chunk_id"] = chunk_id
+            chunk["embedding"] = embeddings[i]
+            chunk_id += 1
+            my_dict.append(chunk)
+            
+            
+    df = pd.DataFrame.from_records(my_dict)
+    print(df.head())
+    joblib.dump(df,'embeddings.joblib')
 
-for json_file in jsons:
-    with open(f"jsons/{json_file}","r") as f:
-        content = json.load(f)
-    print(f"Creating embeddings for {json_file}")
-    embeddings = create_embedding([c['text'] for c in content['chunks']])
-    
-    for i, chunk in enumerate(content['chunks']):
-        chunk["chunk_id"] = chunk_id
-        chunk["embedding"] = embeddings[i]
-        chunk_id += 1
-        my_dict.append(chunk)
-        
-        
-df = pd.DataFrame.from_records(my_dict)
-print(df.head())
+
